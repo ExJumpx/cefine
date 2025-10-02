@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto 11C Informática 🌍</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Innovación para un Mundo Sostenible</h1>
+    <nav>
+        <ul>
+            <li><a href="#problematica">Problemática</a></li>
+            <li><a href="#solucion">Solución</a></li>
+            <li><a href="#app">Nuestra App</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Sección de la problemática -->
+    <section id="problematica">
+        <h2>🌱 Problemática</h2>
+        <p>
+            Actualmente, el planeta enfrenta una crisis ambiental significativa. El exceso de desechos plásticos y electrónicos contamina océanos, ríos y suelos, afectando a la fauna y flora.
+            La deforestación y el uso indiscriminado de recursos naturales provocan la pérdida de biodiversidad y contribuyen al cambio climático.
+            Además, la contaminación del aire y el consumo excesivo de energía incrementan la huella de carbono, poniendo en riesgo la salud de las personas y el equilibrio de los ecosistemas.
+            El exceso de desechos plásticos afecta los océanos y la biodiversidad, y el consumo excesivo de energía contribuye al cambio climático.
+            Por todo esto, es fundamental generar conciencia sobre hábitos sostenibles y promover acciones que ayuden a cuidar nuestro entorno y preservar recursos para futuras generaciones.
+        </p>
+    </section>
+
+    <!-- Sección de la propuesta -->
+    <section id="solucion">
+        <h2>💡 Solución</h2>
+        <p>
+            Nuestra propuesta es una app interactiva que motiva a los usuarios a adoptar hábitos sostenibles mediante retos diarios, registro de acciones y un sistema de puntos.
+            Además, ofrece información educativa sobre reciclaje, ahorro de energía, cuidado del agua y sostenibilidad, para que cada usuario comprenda cómo sus acciones impactan positivamente al medio ambiente.
+            Una app que incentive a los usuarios a realizar acciones sostenibles, aprender sobre el reciclaje, ahorro de energía y cuidado del agua, y ganar puntos por sus buenas prácticas.
+            La app busca ser una herramienta práctica y educativa, promoviendo cambios de comportamiento que reduzcan la contaminación, fomenten el consumo responsable y fortalezcan la conciencia ambiental en la comunidad.
+            De esta forma, cada acción pequeña se convierte en un paso hacia un mundo más limpio, seguro y equilibrado.
+        </p>
+    </section>
+
+    <!-- La aplicación en sí -->
+    <section id="app">
+        <h2>📱 Prueba nuestra App</h2>
+
+        <!-- Reto del día -->
+        <div class="card">
+            <div id="reto" class="reto"></div>
+
+            <div class="app-container">
+                <input type="text" id="accion" placeholder="Ejemplo: Reciclé una botella">
+                <button onclick="guardarAccion()">Guardar acción</button>
+            </div>
+
+            <div class="puntos">
+                Puntos: <span id="puntos">0</span>
+            </div>
+
+            <h3>Mis acciones sostenibles:</h3>
+            <ul id="acciones"></ul>
+        </div>
+
+        <!-- Información educativa -->
+        <div class="card">
+            <h3>Aprende más sobre sostenibilidad 🌱</h3>
+            <p>
+                La sostenibilidad no solo implica reducir residuos, sino también comprender la interconexión entre economía, sociedad y medio ambiente.
+                Cada decisión que tomamos, desde lo que consumimos hasta cómo nos transportamos, afecta directamente nuestro entorno.
+                Con pequeñas acciones como reciclar, ahorrar agua y energía, y optar por productos responsables, podemos generar un impacto positivo.
+                Esta sección te brinda consejos prácticos y conocimientos esenciales para vivir de manera consciente, proteger los recursos naturales y contribuir a un planeta más saludable.
+            </p>
+            <div class="botones-info">
+                <button onclick="mostrarInfo('reciclaje')">♻️ Reciclaje</button>
+                <button onclick="mostrarInfo('energia')">💡 Ahorro de Energía</button>
+                <button onclick="mostrarInfo('agua')">💧 Cuidado del Agua</button>
+                <button onclick="mostrarInfo('sostenibilidad')">🌍 Sostenibilidad</button>
+            </div>
+            <div id="infoDetalle" class="info"></div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <p>Proyecto Semana de la Ciencia - Bachiller en Informática © 2025</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
+
