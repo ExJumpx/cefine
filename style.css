@@ -1,178 +1,167 @@
-/* Reset y fuentes */
-* {
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(180deg, #d2f8e5 0%, #f0fff4 100%);
+    color: #2e3a2d;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-body {
-    background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
-    color: #2f3e46;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: linear-gradient(135deg, #2e7d32, #1b5e20);
-    color: white;
-    padding: 2rem 1rem;
-    text-align: center;
-    border-bottom: 5px solid #a5d6a7;
-}
-
-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
-nav ul {
+/* Pantalla de inicio */
+.pantalla-inicio {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #a2f5a2, #47c47d);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    list-style: none;
-    margin-top: 1rem;
-    gap: 1.5rem;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
 }
+.titulo-inicio {
+    font-size: 2.8em;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    animation: flotar 3s ease-in-out infinite;
+}
+.subtexto-inicio {
+    color: #f7fff7;
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+.btn-inicio {
+    background: #fff;
+    color: #2e7d32;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-inicio:hover {
+    background: #2e7d32;
+    color: #fff;
+    transform: scale(1.1);
+}
+.oculto { display: none; }
 
-nav ul li a {
-    color: #e8f5e9;
+/* Animaciones */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes flotar { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+/* Header y contenido */
+header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav ul { list-style: none; padding: 0; }
+nav li { display: inline; margin: 0 10px; }
+nav a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
     transition: 0.3s;
 }
+nav a:hover { text-decoration: underline; }
 
-nav ul li a:hover {
-    background: #66bb6a;
-    color: white;
-}
-
-/* Secciones */
 section {
-    padding: 3rem 2rem;
-    max-width: 900px;
-    margin: 2rem auto;
+    padding: 20px;
+    margin: 20px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
-section h2 {
-    font-size: 1.8rem;
-    color: #1b5e20;
-    margin-bottom: 1rem;
-    border-left: 6px solid #66bb6a;
-    padding-left: 10px;
-}
-
-/* App container */
-.app-container {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    align-items: center;
-}
-
-input {
-    flex: 1;
-    padding: 0.8rem;
-    border: 2px solid #81c784;
-    border-radius: 10px;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-color: #388e3c;
-    box-shadow: 0px 0px 6px rgba(56, 142, 60, 0.5);
-}
-
-button {
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, #43a047, #2e7d32);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-}
-
-button:hover {
-    background: linear-gradient(135deg, #66bb6a, #388e3c);
-    transform: scale(1.05);
-}
-
-/* Lista de acciones */
-#acciones li {
-    margin-bottom: 0.8rem;
-    padding: 0.6rem 1rem;
-    background: #c8e6c9;
-    border-radius: 8px;
-    border-left: 6px solid #2e7d32;
-    transition: 0.3s;
-}
-
-#acciones li:hover {
-    background: #a5d6a7;
-}
-
-/* Card de reto e info */
+/* Tarjetas */
 .card {
-    background: #fff;
+    background: #eaffea;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin: 20px 0;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-.reto {
-    background: #c8e6c9;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.puntos {
-    font-size: 18px;
-    font-weight: bold;
-    color: #2e7d32;
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* sección informativa */
-.botones-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.botones-info button {
-    flex: 1;
-    min-width: 120px;
-}
-
-.info {
-    margin-top: 15px;
-    padding: 10px;
-    background: #f1f8e9;
-    border-radius: 10px;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1.5rem;
+button {
     background: #2e7d32;
     color: white;
-    margin-top: 3rem;
-    border-top: 5px solid #a5d6a7;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover { background: #43a047; transform: scale(1.05); }
+
+input {
+    border: 2px solid #81c784;
+    border-radius: 10px;
+    padding: 10px;
+    width: 70%;
+}
+
+.reto { font-size: 1.2em; font-weight: bold; color: #1b5e20; }
+.info { background: #f1fff3; border-radius: 10px; padding: 15px; animation: fadeIn 0.5s; }
+
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Juego de reciclaje */
+.residuos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.residuo {
+    padding: 10px 15px;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    background: #c8facc;
+    cursor: grab;
+    transition: transform 0.2s;
+}
+.residuo:hover { transform: scale(1.1); }
+
+.contenedores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.cesto {
+    padding: 20px;
+    border-radius: 15px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s;
+}
+.cesto:hover { transform: scale(1.1); }
+
+.azul { background: #2196f3; }
+.verde { background: #4caf50; }
+.amarillo { background: #ffeb3b; color: #333; }
+.gris { background: #9e9e9e; }
+.marron { background: #8d6e63; }
+
+.cesto.correcto { box-shadow: 0 0 15px #00e676; }
+
+/* Trivia */
+.mensaje-trivia {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.5s;
 }
