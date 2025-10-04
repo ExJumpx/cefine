@@ -165,3 +165,49 @@ footer {
     text-align: center;
     animation: fadeIn 0.5s;
 }
+
+.trivia-card {
+background: #e8f5e9;
+border-radius: 20px;
+padding: 25px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+animation: aparecer 1s ease;
+}
+
+.pregunta-card h3 {
+color: #2e7d32;
+margin-bottom: 15px;
+}
+
+.opciones {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.opcion-btn {
+background: #4caf50;
+border: none;
+color: white;
+padding: 10px;
+border-radius: 10px;
+cursor: pointer;
+transition: 0.3s;
+}
+.opcion-btn:hover {
+background: #2e7d32;
+transform: scale(1.05);
+}
+
+.mensaje-resultado {
+margin-top: 10px;
+animation: fadeIn 0.5s ease-in-out;
+}
+.correcto {
+color: #1b5e20;
+font-weight: bold;
+}
+.incorrecto {
+color: #d32f2f;
+font-weight: bold;
+}
