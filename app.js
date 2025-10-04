@@ -60,41 +60,80 @@ function mostrarInfo(tipo) {
 }
 
 
-// --- TRIVIA ---
+// --- TRIVIA INTERACTIVA ---
 const preguntas = [
-    { texto: "¿Qué contenedor usa el papel?", opciones: ["Azul", "Verde", "Amarillo"], correcta: 0 },
-    { texto: "¿Cuál de estas energías es renovable?", opciones: ["Solar", "Petróleo", "Carbón"], correcta: 0 },
-    { texto: "¿Qué se debe hacer con el agua mientras te cepillas?", opciones: ["Dejarla correr", "Cerrar la llave", "Tirar jabón"], correcta: 1 },
-    { texto: "¿Qué color de cesto se usa para el plástico?", opciones: ["Amarillo", "Verde", "Gris"], correcta: 0 }
+{ pregunta: "♻️ ¿Qué color de contenedor se usa para el papel?", opciones: ["Verde", "Azul", "Amarillo"], correcta: "Azul" },
+{ pregunta: "💡 ¿Cuál de estas acciones ahorra más energía?", opciones: ["Dejar la TV encendida", "Usar bombillos LED", "Usar focos incandescentes"], correcta: "Usar bombillos LED" },
+{ pregunta: "💧 ¿Cuál es la mejor forma de cuidar el agua?", opciones: ["Lavar el auto con manguera", "Cerrar el grifo al cepillarte", "Dejar la llave abierta"], correcta: "Cerrar el grifo al cepillarte" },
+{ pregunta: "🌍 ¿Qué significa sostenibilidad?", opciones: ["Usar todo sin pensar", "Cuidar los recursos para el futuro", "Consumir sin límites"], correcta: "Cuidar los recursos para el futuro" },
+{ pregunta: "🌡️ ¿Qué causa el cambio climático?", opciones: ["Los gases de efecto invernadero", "El frío extremo", "La lluvia"], correcta: "Los gases de efecto invernadero" },
+{ pregunta: "🛒 ¿Qué es consumo responsable?", opciones: ["Comprar sin pensar", "Evitar el plástico y apoyar lo local", "Tirar comida en buen estado"], correcta: "Evitar el plástico y apoyar lo local" },
+{ pregunta: "🌳 ¿Qué ayuda a reducir el CO₂?", opciones: ["Talar árboles", "Plantar árboles", "Quemar basura"], correcta: "Plantar árboles" },
+{ pregunta: "🚶‍♂️ ¿Qué transporte contamina menos?", opciones: ["Auto particular", "Caminar o usar bicicleta", "Moto"], correcta: "Caminar o usar bicicleta" },
+{ pregunta: "🍃 ¿Qué es una energía renovable?", opciones: ["Carbón", "Solar", "Petróleo"], correcta: "Solar" },
+{ pregunta: "🌊 ¿Qué pasa si arrojamos basura al mar?", opciones: ["Se limpia sola", "Afecta a los animales marinos", "Nada"], correcta: "Afecta a los animales marinos" },
+{ pregunta: "🥤 ¿Qué material tarda más en degradarse?", opciones: ["Papel", "Plástico", "Cáscaras de frutas"], correcta: "Plástico" },
+{ pregunta: "🔥 ¿Qué debemos hacer con los residuos peligrosos?", opciones: ["Botarlos en la calle", "Llevarlos a puntos especiales", "Quemarlos"], correcta: "Llevarlos a puntos especiales" },
+{ pregunta: "🌾 ¿Qué ayuda a conservar la biodiversidad?", opciones: ["Usar pesticidas sin control", "Cuidar los ecosistemas", "Cazar animales"], correcta: "Cuidar los ecosistemas" },
+{ pregunta: "📱 ¿Qué puedes hacer con un celular viejo?", opciones: ["Tirarlo", "Reciclarlo", "Guardarlo sin batería"], correcta: "Reciclarlo" },
+{ pregunta: "🚿 ¿Cuál es un hábito sostenible?", opciones: ["Duchas cortas", "Dejar luces encendidas", "Usar bolsas plásticas"], correcta: "Duchas cortas" },
+{ pregunta: "🍽️ ¿Qué puedes hacer para evitar el desperdicio de comida?", opciones: ["Servir solo lo necesario", "Cocinar de más", "Tirar lo que sobra"], correcta: "Servir solo lo necesario" },
+{ pregunta: "🏠 ¿Cómo puedes reducir el consumo eléctrico?", opciones: ["Apagar luces innecesarias", "Usar muchos aparatos a la vez", "Dejar el aire encendido"], correcta: "Apagar luces innecesarias" },
+{ pregunta: "🚯 ¿Qué significa reducir en las 3R?", opciones: ["Comprar más cosas", "Evitar generar basura", "Tirar todo"], correcta: "Evitar generar basura" },
+{ pregunta: "🌞 ¿Cuál de estas es energía limpia?", opciones: ["Gas natural", "Energía solar", "Carbón"], correcta: "Energía solar" },
+{ pregunta: "🧃 ¿Qué envase se puede reciclar?", opciones: ["Botella plástica", "Cáscara de plátano", "Comida cocida"], correcta: "Botella plástica" }
 ];
+
 let preguntaActual = 0;
 
+// --- FUNCIÓN PARA MOSTRAR PREGUNTA ---
 function mostrarPregunta() {
-    const pregunta = preguntas[preguntaActual];
-    document.getElementById("pregunta").innerText = pregunta.texto;
-    const opcionesDiv = document.getElementById("opciones");
-    opcionesDiv.innerHTML = "";
-    pregunta.opciones.forEach((op, i) => {
-        const btn = document.createElement("button");
-        btn.textContent = op;
-        btn.onclick = () => verificarRespuesta(i);
-        opcionesDiv.appendChild(btn);
-    });
+if (preguntaActual >= preguntas.length) {
+    document.getElementById("trivia-container").innerHTML = `
+    <h3>🎉 ¡Has completado la trivia!</h3>
+    <p>Increíble trabajo, has aprendido mucho sobre sostenibilidad 🌍</p>
+    `;
+    return;
 }
-function verificarRespuesta(indice) {
-    const correcta = preguntas[preguntaActual].correcta;
-    const mensaje = document.getElementById("mensajeTrivia");
-    if (indice === correcta) {
-        puntos += 5;
-        mensaje.textContent = "🎉 ¡Correcto! ¡Sigue asi!";
-        mensaje.style.color = "#2e7d32";
-    } else {
-        mensaje.textContent = "💀 Incorrecto. ¡Vuelve a intentarlo!";
-        mensaje.style.color = "red";
-    }
-    document.getElementById("puntos").innerText = puntos;
-    preguntaActual = (preguntaActual + 1) % preguntas.length;
-    setTimeout(() => mostrarPregunta(), 1500);
+
+const q = preguntas[preguntaActual];
+const contenedor = document.getElementById("trivia-container");
+
+contenedor.innerHTML = `
+    <div class="pregunta-card">
+    <h3>${q.pregunta}</h3>
+    <div class="opciones">
+        ${q.opciones
+        .map(
+            (op) => `<button class="opcion-btn" onclick="verificarRespuesta('${op}')">${op}</button>`
+        )
+        .join("")}
+    </div>
+    </div>
+`;
+}
+
+// --- VERIFICAR RESPUESTA ---
+function verificarRespuesta(respuesta) {
+const correcta = preguntas[preguntaActual].correcta;
+const mensaje = document.createElement("div");
+mensaje.classList.add("mensaje-resultado");
+
+if (respuesta === correcta) {
+    puntos += 15;
+    mensaje.innerHTML = `<p class="correcto">🎉 ¡Correcto! Ganas 15 puntos 🌟</p>`;
+} else {
+    mensaje.innerHTML = `<p class="incorrecto">😢 Mala suerte... la respuesta correcta era: <b>${correcta}</b></p>`;
+}
+
+document.getElementById("trivia-container").appendChild(mensaje);
+
+setTimeout(() => {
+    mensaje.remove();
+    preguntaActual++;
+    actualizarUI();
+    mostrarPregunta();
+}, 2500);
 }
 
 // --- JUEGO DE RECICLAJE ---
